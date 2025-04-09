@@ -5,8 +5,9 @@ import Link from "next/link";
 export default function Home() {
     return (
         <>
-
-            <Link href={"./about"} className={buttonVariants({variant: "secondary"})}>About</Link>
+            <div className="p-4">
+                <Link href={"./about"} className={buttonVariants({variant: "secondary"})}>About</Link>
+            </div>
         </>
     )
 }
