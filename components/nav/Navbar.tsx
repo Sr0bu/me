@@ -20,6 +20,7 @@ export default function Navbar() {
                     <Link href="/" className={buttonVariants({variant: "secondary"})}>Home</Link>
                     <Link href="/about" className={buttonVariants({variant: "secondary"})}>Über mich</Link>
                     <Link href="/contact" className={buttonVariants({variant: "secondary"})}>Kontakt</Link>
+                    <Link href={"/chat"} className={buttonVariants({variant: "secondary"})}>Chat</Link>
                     <ModeToggle />
                 </div>
 
