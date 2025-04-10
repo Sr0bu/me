@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import {Button, buttonVariants} from '@/components/ui/button'
 import { ModeToggle } from '@/components/theme/themebutton'
 
 export default function Navbar() {
@@ -17,9 +17,10 @@ export default function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center space-x-4">
-                    <Link href="/" className="hover:underline text-foreground select-none">Home</Link>
-                    <Link href="/about" className="hover:underline text-foreground select-none">Über uns</Link>
-                    <Link href="/contact" className="hover:underline text-foreground select-none">Kontakt</Link>
+                    <Link href="/" className={buttonVariants({variant: "secondary"})}>Home</Link>
+                    <Link href="/about" className={buttonVariants({variant: "secondary"})}>Über mich</Link>
+                    <Link href="/contact" className={buttonVariants({variant: "secondary"})}>Kontakt</Link>
+                    <Link href={"/chat"} className={buttonVariants({variant: "secondary"})}>Chat</Link>
                     <ModeToggle />
                 </div>
 
@@ -32,10 +33,10 @@ export default function Navbar() {
             </div>
 
             {isOpen && (
-                <div className="md:hidden mt-2 space-y-2">
-                    <Link href="/" className="block hover:underline text-foreground select-none">Home</Link>
-                    <Link href="/about" className="block hover:underline text-foreground select-none">Über uns</Link>
-                    <Link href="/contact" className="block hover:underline text-foreground select-none">Kontakt</Link>
+                <div className="md:hidden mt-2 flex items-center gap-2 justify-center">
+                    <Link href="/" className={buttonVariants({variant: "secondary"})}>Home</Link>
+                    <Link href="/about" className={buttonVariants({variant: "secondary"})}>Über uns</Link>
+                    <Link href="/contact" className={buttonVariants({variant: "secondary"})}>Kontakt</Link>
                 </div>
             )}
         </nav>

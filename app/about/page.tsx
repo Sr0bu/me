@@ -2,8 +2,9 @@
 export default function Home() {
     return (
         <>
-            <h1>Website</h1>
-            <a className={"select-none"} href={"./"}>Honmre</a>
+            <div className="p-4">
+                <p className={"text-2xl"}>Website</p>
+            </div>
         </>
     )
 }
