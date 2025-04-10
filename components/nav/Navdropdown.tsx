@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 
+
 export function Navdropdown() {
 
     return (
@@ -21,12 +22,9 @@ export function Navdropdown() {
                 <Button variant="secondary">Other</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuLabel>Other</DropdownMenuLabel>
+                <DropdownMenuItem>Online</DropdownMenuItem>
+                <DropdownMenuSeparator></DropdownMenuSeparator>
             </DropdownMenuContent>
         </DropdownMenu>
 
