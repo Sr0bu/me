@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const token = jwt.sign(
         { userId: user.id, username: user.username },
         SECRET_KEY,
-        { expiresIn: '1h' }
+        { expiresIn: '30d' }
     )
 
 
