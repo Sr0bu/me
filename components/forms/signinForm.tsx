@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { useState } from "react"
+import {useEffect, useState} from "react"
 import { useRouter } from "next/navigation" // useRouter für Redirect
 
 import {
@@ -15,6 +15,10 @@ import {
 
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+
+
+
+
 
 export function SigninForm() {
     const [identifier, setIdentifier] = useState('')
@@ -48,7 +52,7 @@ export function SigninForm() {
     }
 
     return (
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md px-4 sm:px-0">
             <form onSubmit={handleSubmit}>
                 <Card>
                     <CardHeader className="space-y-1">
