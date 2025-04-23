@@ -11,11 +11,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const { identifier, password } = req.body
 
-    const user = await prisma.user.findFirst({
-        where: {
-            OR: [{ email: identifier }, { username: identifier }],
-        },
-    })
+    if (!identifier || !password) {
+        return res.status(400).json({ error: 'Missing identifier or password' })
+    }
+
+    // Email oder Username erkennen
+    const isEmail = identifier.includes('@')
+
+    const user = isEmail
+        ? await prisma.user.findUnique({ where: { email: identifier } })
+        : await prisma.user.findFirst({ where: { username: identifier } })
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json({ error: 'Invalid credentials' })
@@ -27,11 +32,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         { expiresIn: '30d' }
     )
 
-
     res.setHeader(
         'Set-Cookie',
         `token=${token}; HttpOnly; Path=/; Max-Age=3600; SameSite=Lax`
     )
 
-    return res.status(200).json({ message: 'Login successful' })
+    return res.status(200).json({ message: 'Login successful', userId: user.id })
 }
